@@ -24,8 +24,8 @@ class MotHeadDataset(CustomDataset):
 
         for i, ann_line in enumerate(ann_list):
             frame, _id, bbx, bby, bbw, bbh, ignore, *_ = ann_line.split(',')
-            data_infos[frame - 1]['ann']['bboxes'].append([float(bbx), float(bby), float(bbw), float(bbh)])
-            data_infos[frame - 1]['ann']['labels'].append(0)
+            data_infos[int(frame) - 1]['ann']['bboxes'].append([float(bbx), float(bby), float(bbw), float(bbh)])
+            data_infos[int(frame) - 1]['ann']['labels'].append(0)
 
         for data in data_infos:
             data['ann']['bboxes'] = np.array(data['ann']['bboxes']).astype(np.float32)
