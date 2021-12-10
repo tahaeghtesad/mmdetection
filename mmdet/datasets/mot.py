@@ -20,7 +20,7 @@ class MotHeadDataset(CustomDataset):
                 bboxes=[],
                 labels=[]
             )
-        ) for i in range(1, int(ann_list[-1].split(',')[0]))]
+        ) for i in range(1, int(ann_list[-1].split(',')[0]) + 1)]
 
         for i, ann_line in enumerate(ann_list):
             frame, _id, bbx, bby, bbw, bbh, ignore, *_ = ann_line.split(',')
